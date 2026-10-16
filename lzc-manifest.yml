@@ -1,0 +1,34 @@
+application:
+  subdomain: f1timing
+  background_task: true
+  multi_instance: false
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://f1timing:8000/
+
+services:
+  f1timing:
+    # upstream: ghcr.io/adn8naiagent/f1replaytiming:2.1.3
+    image: ghcr.1ms.run/adn8naiagent/f1replaytiming:2.1.3
+    environment:
+      - PORT=8000
+      - DATA_DIR=/data
+      - STORAGE_MODE=local
+      - TZ=Asia/Shanghai
+      # 可选：开启口令认证（部署参数填了才启用）
+      - AUTH_ENABLED={{ if .U.access_passphrase }}true{{ else }}false{{ end }}
+      - AUTH_PASSPHRASE={{ .U.access_passphrase }}
+      # 可选：截图同步（AI 视觉读时间塔）
+      - OPENROUTER_API_KEY={{ .U.openrouter_api_key }}
+    binds:
+      - /lzcapp/var/f1timing:/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s

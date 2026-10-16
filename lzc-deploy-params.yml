@@ -1,0 +1,23 @@
+params:
+  - id: access_passphrase
+    type: secret
+    name: "Access Passphrase"
+    description: "Optional. Site-wide passphrase to restrict access. Leave empty to disable authentication"
+    default_value: ""
+    optional: true
+
+  - id: openrouter_api_key
+    type: secret
+    name: "OpenRouter API Key"
+    description: "Optional. Enables photo sync (AI reads the timing tower from a screenshot)"
+    default_value: ""
+    optional: true
+
+locales:
+  zh:
+    access_passphrase:
+      name: "访问口令"
+      description: "可选。整站访问口令，留空则不启用认证"
+    openrouter_api_key:
+      name: "OpenRouter API Key"
+      description: "可选。启用截图同步功能（AI 从截图读取时间塔）"

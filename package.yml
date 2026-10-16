@@ -1,0 +1,15 @@
+package: community.lazycat.app.f1replaytiming
+version: 2.1.3
+name: F1 Replay Timing
+description: "Real-time F1 timing, track positions and telemetry synced to replays"
+min_os_version: 1.5.0
+author: adn8naiagent
+license: MIT
+homepage: https://github.com/adn8naiagent/F1ReplayTiming
+locales:
+  zh:
+    name: "F1 Replay Timing"
+    description: "F1 直播/回放计时可视化：实时车辆位置、车手遥测、广播同步与策略分析（2024 起的练习赛/排位/正赛）"
+  en:
+    name: "F1 Replay Timing"
+    description: "Visualisation of real-time track data and telemetry synced to F1 replays"
