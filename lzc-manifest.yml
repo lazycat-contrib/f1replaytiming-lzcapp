@@ -9,8 +9,8 @@ application:
       backend: http://f1timing:8000/
 services:
   f1timing:
-    # upstream: ghcr.io/adn8naiagent/f1replaytiming:2.3.1
-    image: ghcr.1ms.run/adn8naiagent/f1replaytiming:2.3.1
+    # upstream: ghcr.io/adn8naiagent/f1replaytiming:2.4.1
+    image: ghcr.1ms.run/adn8naiagent/f1replaytiming:2.4.1
     environment:
       - PORT=8000
       - DATA_DIR=/data
